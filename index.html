@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="imagenes/favicon.png" type="image/png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="./style/style.css" rel="stylesheet" type="text/css">
+    <title>Citas</title>
+</head>
+
+<body>
+
+    <h1 class="card-title text-center" id="sura">APLICACIÓN CITAS MEDICAS</h1>
+
+
+
+    <!--Agregar cita-->
+    <div class="card mt-5">
+        <div class="card-body">
+            <form id="formulario">
+                <h1 class="card-title text-center"> Agregar Citas</h1>
+                <hr />
+
+                <div class="orm-group row">
+                    <label class="col-sm-4 col-lg-2 col-form-label">Nombre</label>
+                    <div class="mb-4 mb-lg-0">
+                        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="nombre"
+                            autoComplete="off" required />
+                    </div>
+
+
+                    <div class="orm-group row">
+                        <label class="col-sm-4 col-lg-2 col-form-label">Apellido</label>
+                        <div class="mb-4 mb-lg-0">
+                            <input type="text" id="Apellido" name="nombre" class="form-control" placeholder="apellido"
+                                autoComplete="off" required />
+                        </div>
+
+                        <div class="orm-group row">
+                            <label class="col-sm-4 col-lg-2 col-form-label">Documento identidad</label>
+                            <div class="mb-4 mb-lg-0">
+                                <input type="text" id="documentoIdentidad" name="nombre" class="form-control"
+                                    placeholder="Documento identidad" autoComplete="off" required />
+                            </div>
+
+                            <div class="form-group row mt-3">
+                                <label class="col-sm-4 col-lg-2 col-form-label">Fecha Ingreso</label>
+                                <div class="form-group col-sm-8 col-lg-4">
+                                    <input type="date" id="fechaIngreso" name="fecha" class="form-control"
+                                        autoComplete="off" required />
+                                </div>
+
+
+                                <div class="form-group row mt-3">
+                                    <label class="col-sm-4 col-lg-2 col-form-label">Fecha Salida</label>
+                                    <div class="form-group col-sm-8 col-lg-4">
+                                        <input type="date" id="fechaSallida" name="fecha" class="form-control"
+                                            autoComplete="off" required />
+                                    </div>
+
+
+
+                                    <label class="col-sm-4 col-lg-2 col-form-label">hora</label>
+                                    <div class="form-group col-sm-8 col-lg-4">
+                                        <input type="time" id="hora" name="hora" class="form-control" autoComplete="off"
+                                            required />
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-4 col-lg-2 col-form-label">motivo hospitalización</label>
+                                    <div class="form-group">
+                                        <textarea id="sintomas" name="motivoHospitalizacion" class="form-control"
+                                            autoComplete="off" required></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="orm-group row">
+                                    <label class="col-sm-4 col-lg-2 col-form-label">¿cuantos dias de atención?</label>
+                                    <div class="mb-4 mb-lg-0">
+                                        <input type="text" id="nombre" name="diasAtencion" class="form-control"
+                                            placeholder="diasAtencion" autoComplete="off" required />
+                                    </div>
+
+                                    <div class="orm-group row">
+                                        <label class="col-sm-4 col-lg-2 col-form-label">¿pertenece a sisben A o
+                                            B?</label>
+                                        <form name="formulario" method="post" action="/send.php">
+
+                                            <input type="text" list="items" />
+
+                                            <datalist id="items">
+                                                <option value=" ">A</option>
+                                                <option value=" ">B</option>
+                                            </datalist>
+                                        </form>
+
+
+                                        <!-- Botón -->
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#exampleModal">
+                                            Mostrar Descuento
+                                        </button>
+
+
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLiveLabel">
+                                                        <font style="vertical-align: inherit;">
+                                                            <font style="vertical-align: inherit;"> Señor Usuario</font>
+                                                        </font>
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">
+                                                            <font style="vertical-align: inherit;">
+                                                                <font style="vertical-align: inherit;">×</font>
+                                                            </font>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>
+                                                        <font style="vertical-align: inherit;">
+                                                            <font style="vertical-align: inherit;">por ser usuario
+                                                                sisben A tiene derecho a un descuento dep 35% sobre los
+                                                                dias de atención</font>
+                                                        </font>
+                                                    </p>
+
+                                                <SCRIPT>
+                                                    if (fechaIngreso > fechaSalida) {
+                                                    alert("La fecha de ingreso debe ser menor que la fecha de salida");
+                                                    } else {
+                                                    let resta = fechaSalidaMl.getTime() - fechaIngresoMl.getTime();
+                                                    let dias = 1 + Math.floor(resta / (1000 * 60 * 60 * 24));
+
+                                                    let valorTotal = dias * 75000;
+                                                    if (radioBtnSi.checked) {
+                                                    valorTotal = valorTotal - (valorTotal * (35 / 100));
+                                                    radioChecked = "Si";
+                                                    } else {
+                                                    radioChecked = "No";
+                                                    }
+                                                    generarPdf(valorTotal, fechaIngreso, fechaSalida, radioChecked);
+                                                    }
+                                                    let fechaIngreso = document.getElementById('inputfechaIngreso').value;
+                                                    let fechaSalida = document.getElementById('inputfechaSalida').value;
+                                                    let fechaIngresoMl = new Date(fechaIngreso);
+                                                    let fechaSalidaMl = new Date(fechaSalida);
+                                                    }
+                                                </SCRIPT>
+
+
+
+
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">
+                                                        <font style="vertical-align: inherit;">
+                                                            <font style="vertical-align: inherit;">aceptar</font>
+                                                        </font>
+                                                    </button>
+                                                    <button type="button" class="btn btn-primary">
+                                                        <font style="vertical-align: inherit;">
+                                                            <font style="vertical-align: inherit;">volver a liquidar
+                                                            </font>
+                                                        </font>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <button type="submit" class="btn btn-primary">
+                                            Guardar
+                                        </button>
+                                        <button type="reset" class="btn btn-primary">
+                                            Limpiar
+                                        </button>
+            </form>
+        </div>
+    </div>
+
+    <button onclick="generarPDF()"> generarPdf</button>
+    <div id="line-chart"></div>
+    <label><input type="range" id="satisfaccion"></label>
+    <label><input type="range" id="servicio cliente"></label>
+    <label><input type="range" id="amabilidad"></label>
+    <div id="grafico"> </div>
+    <button onclick="grafico()"> generarGrafico</button>
+
+    <script src="jsPDF-1.3.2\jsPDF-1.3.2\dist\jspdf.min.js"></script>
+    <script src="graficos.js"></script>
+    <script src="pdf.js"> </script>
+    <script src="https://cdn.plot.ly/plotly-2.14.0.min.js"></script>
+
+
+
+</body>
+
+</html>
